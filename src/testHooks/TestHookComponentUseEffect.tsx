@@ -13,10 +13,11 @@ export const TestHookComponentUseEffect: React.FC = () => {
     // useEffect(() => {
     //     fetch('/users')
     //         .then(response => response.json())
-    //         .then((users) => setUsers(users));
-    // }, [users, setUsers]);
+    //         .then((jhghj) => setUsers(jhghj));
+    // }, [setUsers]);
 
     const [timer, setTimer] = useState(0);
+    const [user, setUser] = useState('');
 
 
     useEffect(() => {

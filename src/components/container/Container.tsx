@@ -7,7 +7,7 @@ import {TestHookComponentUseEffect} from "../../testHooks/TestHookComponentUseEf
 export const Container: React.FC = () => {
   return (
     <div className="App">
-      <TestHookComponentUseEffect />
+        <LatestViewContainer />
     </div>
   );
 }

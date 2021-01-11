@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import { Container } from './components/container/Container';
 
 
-ReactDOM.render(<Container />,document.getElementById('root'));
+//ReactDOM.render(<Container />,document.getElementById('root'));
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <Container />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
+ReactDOM.render(
+  <React.StrictMode>
+    <Container />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

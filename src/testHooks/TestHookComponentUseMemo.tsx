@@ -18,6 +18,7 @@ export const TestHookComponentUseMemo: React.FC = () => {
     const [count, setCount] = useState(0)
 
     const user = useMemo(() => createUser(name, surname), [name, surname])
+
     useEffect(() => {
         // Обновляем заголовок документа с помощью API браузера
         document.title = `Вы нажали ${count} раз`;
