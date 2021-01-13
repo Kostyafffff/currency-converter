@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { LatestView } from '../view/LatestView';
 import { LatestViewContainerWrapper } from "./styles";
-import {ICurrencyRate} from "./types";
+import { ICurrencyRate } from "../../../models/rate-models";
 
 export const LatestViewContainer: React.FC = () => {
     const [currencyRates, setCurrencyRates] = useState<ICurrencyRate>({} as ICurrencyRate);
@@ -19,7 +19,7 @@ export const LatestViewContainer: React.FC = () => {
 
     return (
             <LatestViewContainerWrapper>
-                <LatestView date={222}/>
+                <LatestView data={currencyRates}/>
             </LatestViewContainerWrapper>
     )
 };

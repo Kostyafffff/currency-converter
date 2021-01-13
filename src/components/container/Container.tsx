@@ -1,8 +1,5 @@
 import React from 'react';
-import {LatestViewContainer} from "../latest/container/LatestViewContainer";
-import {TestHookComponentUseMemo} from "../../testHooks/TestHookComponentUseMemo";
-import {TestHookComponentCallback} from "../../testHooks/TestHookComponentUseCallback";
-import {TestHookComponentUseEffect} from "../../testHooks/TestHookComponentUseEffect";
+import { LatestViewContainer } from "../latest/container/LatestViewContainer";
 
 export const Container: React.FC = () => {
   return (

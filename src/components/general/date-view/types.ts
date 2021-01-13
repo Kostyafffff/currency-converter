@@ -1,3 +1,3 @@
 export interface IPropsDatePicker {
-    date: number;
+    date: string;
 }

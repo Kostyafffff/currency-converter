@@ -1,3 +1,5 @@
+import {ICurrencyRate} from "../../../models/rate-models";
+
 export interface IPropsLatestView {
-    date: number;
+    data: ICurrencyRate;
 }
