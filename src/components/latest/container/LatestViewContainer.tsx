@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import { LatestView } from '../view/LatestView';
 import { LatestViewContainerWrapper } from "./styles";
-import { ICurrencyRate } from "../../../models/rate-models";
 
 export const LatestViewContainer: React.FC = () => {
-    const [currencyRates, setCurrencyRates] = useState<ICurrencyRate>({} as ICurrencyRate);
+    const initialSate = {
+        base: '',
+        date: '',
+        rates: [],
+    };
 
-    console.log(currencyRates)
+    const [currencyRates, setCurrencyRates] = useState(initialSate);
 
     useEffect(() => {
         const url = 'https://api.exchangeratesapi.io/latest?base';
@@ -16,6 +19,11 @@ export const LatestViewContainer: React.FC = () => {
             .then(data => setCurrencyRates(data));
 
     }, [setCurrencyRates])
+
+    //TODO need refactor when find appropriate solution
+    if (currencyRates === initialSate) {
+        return <div> NO DATA</div>
+    }
 
     return (
             <LatestViewContainerWrapper>

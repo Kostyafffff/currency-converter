@@ -1,17 +1,18 @@
 import React from 'react';
 import { DateView } from '../../general/date-view/DateView';
 import { IPropsLatestView } from './types';
-import {BaseCurrencyComponent} from "../base-currency/BaseCurrencyComponent";
+import { BaseCurrencyComponent } from "../base-currency/BaseCurrencyComponent";
 
 export const LatestView: React.FC<IPropsLatestView> = ({ data }) => {
-    const currencies = Object.keys(data.rates);
+   const { base, date, rates }  = data;
 
-    console.log(currencies)
+   const currencies = Object.keys(rates);
+
     return (
         <div>
-            <DateView date={data.date}/>
+            <DateView date={date}/>
             <BaseCurrencyComponent
-                baseCurrency={data.base}
+                baseCurrency={base}
                 currencies={currencies}
             />
         </div>
