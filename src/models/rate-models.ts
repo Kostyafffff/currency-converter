@@ -1,9 +1,9 @@
 export interface ICurrencyRate {
     base: string;
     date: string;
-    rates: Array<rate>;
+    rates: Array<TRate>;
 }
 
-type rate = {
+type TRate = {
     currency: number;
 }

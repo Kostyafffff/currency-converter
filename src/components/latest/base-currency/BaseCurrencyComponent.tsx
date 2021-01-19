@@ -1,19 +1,27 @@
-import React, {useState} from 'react';
-import { IPropsBaseCurrency } from './types';
+import React, {useState } from 'react';
+import {IPropsBaseCurrency, THandleChangeEvent} from './types';
 import Select from '@material-ui/core/Select';
-import {MenuItem} from "@material-ui/core";
+import { MenuItem } from "@material-ui/core";
 
 export const BaseCurrencyComponent: React.FC<IPropsBaseCurrency> = ({currencies, baseCurrency}) => {
-    const [currency, setCurrency] = useState(currencies[0]);
+    const [currency, setCurrency] = useState(baseCurrency);
 
-    // const updateValue = (ev: any): void => {
-    //     setCurrency(ev.currentTarget.value)
-    // }
+    const updateValue = (ev: React.ChangeEvent<THandleChangeEvent>): void => {
+        console.log(ev.target.value)
+
+        setCurrency(ev.target.value as string)
+    }
+    const renderedValue = () => currency;
+
     return (
         <div>
             <Select
+                renderValue={renderedValue}
+                displayEmpty={true}
+                value={currency}
+                onChange={updateValue}
                 style={{width: 120}}>
-                {currencies.map(it => (<MenuItem>{it}</MenuItem>))}
+                {currencies.map(it => (<MenuItem value={it} key={it}>{it}</MenuItem>))}
             </Select>
         </div>
     );

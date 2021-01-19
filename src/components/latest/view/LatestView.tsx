@@ -4,7 +4,7 @@ import { IPropsLatestView } from './types';
 import { BaseCurrencyComponent } from "../base-currency/BaseCurrencyComponent";
 
 export const LatestView: React.FC<IPropsLatestView> = ({ data }) => {
-   const { base, date, rates }  = data;
+   const { base, date, rates } = data;
 
    const currencies = Object.keys(rates);
 
