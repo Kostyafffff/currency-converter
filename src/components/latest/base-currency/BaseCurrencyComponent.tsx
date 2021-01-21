@@ -7,22 +7,18 @@ export const BaseCurrencyComponent: React.FC<IPropsBaseCurrency> = ({currencies,
     const [currency, setCurrency] = useState(baseCurrency);
 
     const updateValue = (ev: React.ChangeEvent<THandleChangeEvent>): void => {
-        console.log(ev.target.value)
-
         setCurrency(ev.target.value as string)
     }
     const renderedValue = () => currency;
 
     return (
-        <div>
-            <Select
-                renderValue={renderedValue}
-                displayEmpty={true}
-                value={currency}
-                onChange={updateValue}
-                style={{width: 120}}>
-                {currencies.map(it => (<MenuItem value={it} key={it}>{it}</MenuItem>))}
-            </Select>
-        </div>
+       <Select
+           renderValue={renderedValue}
+           displayEmpty={true}
+           value={currency}
+           onChange={updateValue}
+           style={{width: 120}}>
+           {currencies.map(it => (<MenuItem value={it} key={it}>{it}</MenuItem>))}
+       </Select>
     );
 }

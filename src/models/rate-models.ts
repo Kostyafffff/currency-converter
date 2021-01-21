@@ -4,6 +4,6 @@ export interface ICurrencyRate {
     rates: Array<TRate>;
 }
 
-type TRate = {
+export type TRate = {
     currency: number;
 }

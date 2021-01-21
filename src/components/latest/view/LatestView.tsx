@@ -2,6 +2,7 @@ import React from 'react';
 import { DateView } from '../../general/date-view/DateView';
 import { IPropsLatestView } from './types';
 import { BaseCurrencyComponent } from "../base-currency/BaseCurrencyComponent";
+import { LatestCurrencyList } from "../list/LatestCurrencyList";
 
 export const LatestView: React.FC<IPropsLatestView> = ({ data }) => {
    const { base, date, rates } = data;
@@ -15,6 +16,7 @@ export const LatestView: React.FC<IPropsLatestView> = ({ data }) => {
                 baseCurrency={base}
                 currencies={currencies}
             />
+            <LatestCurrencyList rates={rates}/>
         </div>
     );
 }
