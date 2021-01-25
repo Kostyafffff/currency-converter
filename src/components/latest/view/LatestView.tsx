@@ -4,7 +4,7 @@ import { IPropsLatestView } from './types';
 import { BaseCurrencyComponent } from "../base-currency/BaseCurrencyComponent";
 import { LatestCurrencyList } from "../list/LatestCurrencyList";
 
-export const LatestView: React.FC<IPropsLatestView> = ({ data }) => {
+export const LatestView: React.FC<IPropsLatestView> = ({ data, onChangeBaseCurrency }) => {
    const { base, date, rates } = data;
 
    const currencies = Object.keys(rates);
@@ -15,6 +15,7 @@ export const LatestView: React.FC<IPropsLatestView> = ({ data }) => {
             <BaseCurrencyComponent
                 baseCurrency={base}
                 currencies={currencies}
+                onChangeBaseCurrency={onChangeBaseCurrency}
             />
             <LatestCurrencyList rates={rates}/>
         </div>

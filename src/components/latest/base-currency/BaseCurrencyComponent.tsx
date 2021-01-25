@@ -1,14 +1,18 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import {IPropsBaseCurrency, THandleChangeEvent} from './types';
 import Select from '@material-ui/core/Select';
 import { MenuItem } from "@material-ui/core";
 
-export const BaseCurrencyComponent: React.FC<IPropsBaseCurrency> = ({currencies, baseCurrency}) => {
+export const BaseCurrencyComponent: React.FC<IPropsBaseCurrency> = ({currencies, baseCurrency, onChangeBaseCurrency}) => {
     const [currency, setCurrency] = useState(baseCurrency);
 
     const updateValue = (ev: React.ChangeEvent<THandleChangeEvent>): void => {
-        setCurrency(ev.target.value as string)
+        const newCurrency = ev.target.value as string;
+
+        setCurrency(newCurrency);
+        onChangeBaseCurrency(newCurrency);
     }
+
     const renderedValue = () => currency;
 
     return (

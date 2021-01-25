@@ -16,10 +16,16 @@ export const LatestCurrencyList: React.FC<IPropsLatestCurrencyList> = ({ rates }
                 </TableCell>
             </TableHead>
             <TableBody>
-                {
+                {Object.entries(rates).map(row => (
                     <TableRow>
+                        <TableCell>
+                            {row[0]}
+                        </TableCell>
+                        <TableCell>
+                            {row[1]}
+                        </TableCell>
                     </TableRow>
-                }
+                ))}
             </TableBody>
         </Table>
     )
