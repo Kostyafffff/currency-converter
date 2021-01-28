@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import { LatestView } from '../view/LatestView';
 import { LatestViewContainerWrapper } from "./styles";
-import {ICurrencyRate} from "../../../models/rate-models";
+import { ICurrencyRate } from "../../../models/rate-models";
 
 export const LatestViewContainer: React.FC = () => {
 
