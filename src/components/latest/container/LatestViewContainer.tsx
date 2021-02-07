@@ -22,7 +22,6 @@ export const LatestViewContainer: React.FC = () => {
     }, [loadCurrencyRates])
 
 
-
     if (currencyRates === undefined) {
         //TODO WRAPPER WITH LOADER
         return <div> NO DATA</div>
