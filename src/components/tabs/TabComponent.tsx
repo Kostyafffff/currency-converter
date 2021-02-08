@@ -15,16 +15,39 @@ export const TabComponent: React.FC = () => {
     switch(tab) {
         case 0:
            return (
-               //TODO move LatestView container to another component
            <>
-            <TabsStyled value={tab} onChange={onTabChange}>
-                <Tab label={TAB_VALUE.LATEST} />
-                <Tab label={TAB_VALUE.CONVERTER}  />
-                <Tab label={TAB_VALUE.HISTORY} />
-            </TabsStyled>
-            <LatestViewContainer />
+                <TabsStyled value={tab} onChange={onTabChange}>
+                    <Tab label={TAB_VALUE.LATEST} />
+                    <Tab label={TAB_VALUE.HISTORY} />
+                    <Tab label={TAB_VALUE.CONVERTER}  />
+                </TabsStyled>
+                <LatestViewContainer />
             </>
         )
+        case 1:
+           return (
+                <>
+                    <TabsStyled value={tab} onChange={onTabChange}>
+                        <Tab label={TAB_VALUE.LATEST} />
+                        <Tab label={TAB_VALUE.HISTORY} />
+                        <Tab label={TAB_VALUE.CONVERTER}  />
+                    </TabsStyled>
+                    <LatestViewContainer />
+                </>
+            )
+        case 2:
+            return (
+                (
+                    <>
+                        <TabsStyled value={tab} onChange={onTabChange}>
+                            <Tab label={TAB_VALUE.LATEST} />
+                            <Tab label={TAB_VALUE.HISTORY} />
+                            <Tab label={TAB_VALUE.CONVERTER}  />
+                        </TabsStyled>
+                        <LatestViewContainer />
+                    </>
+                )
+            )
         default:
             return (
                 <div>ssss</div>
