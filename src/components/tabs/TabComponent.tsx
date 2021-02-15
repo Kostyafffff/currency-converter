@@ -3,6 +3,7 @@ import { TAB_VALUE } from "./types";
 import { Tab } from "@material-ui/core";
 import {TabsStyled} from "./styles";
 import {LatestViewContainer} from "../latest/container/LatestViewContainer";
+import {HistoryView} from "../history/container/HistoryView";
 
 export const TabComponent: React.FC = () => {
 
@@ -32,7 +33,7 @@ export const TabComponent: React.FC = () => {
                         <Tab label={TAB_VALUE.HISTORY} />
                         <Tab label={TAB_VALUE.CONVERTER}  />
                     </TabsStyled>
-                    <LatestViewContainer />
+                    <HistoryView />
                 </>
             )
         case 2:
