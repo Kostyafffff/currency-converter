@@ -2,8 +2,8 @@ import React, {useCallback, useState} from "react";
 import { TAB_VALUE } from "./types";
 import { Tab } from "@material-ui/core";
 import {TabsStyled} from "./styles";
-import {LatestViewContainer} from "../latest/container/LatestViewContainer";
-import {HistoryView} from "../history/container/HistoryView";
+import { LatestViewContainer } from "../latest/container/LatestViewContainer";
+import { HistoryView } from "../history/container/HistoryView";
 
 export const TabComponent: React.FC = () => {
 

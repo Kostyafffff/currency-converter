@@ -1,27 +1,25 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import { ICurrencyRate } from "../../../models/rate-models";
-import {HistoryViewContainer} from "./styles";
-import {TextField} from "@material-ui/core";
+import { HistoryViewContainer } from "./styles";
+import { TextField } from "@material-ui/core";
+import {LatestCurrencyList} from "../../latest/list/LatestCurrencyList";
 
 export const HistoryView: React.FC = () => {
 
     const [currencyRates, setCurrencyRates] = useState<ICurrencyRate>();
-    const [startDate, setStartDate] = useState('');
+    const [startDate, setStartDate] = useState('2017-05-24');
 
-    console.log('!!!!!!!!' + startDate)
-
-    const loadCurrencyRates = useCallback((currency: string): void => {
-        const url = `https://api.exchangeratesapi.io/latest?base=${currency}`;
+    const loadCurrencyRates = useCallback((): void => {
+        const url = `https://api.exchangeratesapi.io/${startDate}`;
 
         fetch(url)
             .then(response => response.json())
             .then(data => setCurrencyRates(data));
-    }, [setCurrencyRates]);
+    }, [startDate, setCurrencyRates]);
 
 
     useEffect(() => {
-        loadCurrencyRates('GBP');
-
+        loadCurrencyRates();
     }, [loadCurrencyRates])
 
 
@@ -38,13 +36,14 @@ export const HistoryView: React.FC = () => {
                     label="date"
                     type="date"
                     onChange={date => setStartDate(date.target.value)}
-                    defaultValue="2017-05-24"
+                    defaultValue={startDate}
                     className={'classes.textField'}
                     InputLabelProps={{
                         shrink: true,
                     }}
                 />
             </form>
+            <LatestCurrencyList rates={currencyRates.rates} />
         </HistoryViewContainer>
     )
 };
