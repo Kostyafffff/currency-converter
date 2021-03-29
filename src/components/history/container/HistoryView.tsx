@@ -2,11 +2,16 @@ import React, {useCallback, useEffect, useState} from 'react';
 import { ICurrencyRate } from "../../../models/rate-models";
 import { HistoryViewContainer } from "./styles";
 import { TextField } from "@material-ui/core";
-import {LatestCurrencyList} from "../../latest/list/LatestCurrencyList";
+import { LatestCurrencyList } from "../../latest/list/LatestCurrencyList";
 
 export const HistoryView: React.FC = () => {
 
+    const currentDate = Date;
+    console.log(currentDate)
+
     const [currencyRates, setCurrencyRates] = useState<ICurrencyRate>();
+    const [currency, setCurrency] = useState<string>();
+
     const [startDate, setStartDate] = useState('2017-05-24');
 
     const loadCurrencyRates = useCallback((): void => {
