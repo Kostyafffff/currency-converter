@@ -3,16 +3,21 @@ import { ICurrencyRate } from "../../../models/rate-models";
 import { HistoryViewContainer } from "./styles";
 import { TextField } from "@material-ui/core";
 import { LatestCurrencyList } from "../../latest/list/LatestCurrencyList";
+import { BaseCurrencyComponent } from "../../latest/base-currency/BaseCurrencyComponent";
 
 export const HistoryView: React.FC = () => {
-
-    const currentDate = Date;
-    console.log(currentDate)
-
     const [currencyRates, setCurrencyRates] = useState<ICurrencyRate>();
-    const [currency, setCurrency] = useState<string>();
-
     const [startDate, setStartDate] = useState('2017-05-24');
+    const [currency, setCurrency] = useState<string>('USD');
+
+    let rates: string[] = [];
+    if(currencyRates !== undefined) {
+        rates = Object.keys(currencyRates.rates);
+    }
+
+
+
+
 
     const loadCurrencyRates = useCallback((): void => {
         const url = `https://api.exchangeratesapi.io/${startDate}`;
@@ -49,6 +54,11 @@ export const HistoryView: React.FC = () => {
                 />
             </form>
             <LatestCurrencyList rates={currencyRates.rates} />
+            <BaseCurrencyComponent
+                baseCurrency={currency}
+                onChangeBaseCurrency={() => {}}
+                currencies={rates}
+            />
         </HistoryViewContainer>
     )
 };
